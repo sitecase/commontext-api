@@ -1,0 +1,15 @@
+{
+  "name": "ct-api",
+  "version": "1.0.0",
+  "description": "common text graphql API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "graphql"
+  ],
+  "author": "avimehenwal",
+  "license": "ISC"
+}
