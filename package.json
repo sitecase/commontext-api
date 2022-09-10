@@ -10,6 +10,10 @@
     "api",
     "graphql"
   ],
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=7.11.0"
+  },
   "author": "avimehenwal",
   "license": "ISC"
 }
