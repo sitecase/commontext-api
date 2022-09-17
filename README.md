@@ -43,3 +43,14 @@ class someService {
   ){}
 }
 ```
+
+## Stream oriented architecture
+
+- fancy name over CQRS pattern
+  - domain commands, domain queries, domain events happen overtime
+  - data comes with unpredictable intervals
+  - Advantages / disadvantages
+    - complexity, redability, maintainability
+  - Reactive programming
+- move from Layered Architecture / Service-oriented-architecture to stream-oriented-architecture
+- in CQRS we dont have Services anymore they are replaces with commands and queries
