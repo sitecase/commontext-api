@@ -1,0 +1,22 @@
+{
+  "name": "ct-api",
+  "version": "1.0.0",
+  "description": "common text graphql API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "graphql"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=7.11.0"
+  },
+  "author": "avimehenwal",
+  "license": "ISC",
+  "devDependencies": {
+    "nx": "14.7.5"
+  }
+}
