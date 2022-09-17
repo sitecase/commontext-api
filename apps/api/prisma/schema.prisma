@@ -10,18 +10,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @default(autoincrement()) @id
-  email String  @unique
-  name  String?
-  posts Post[]
+// all supported languages
+model Language {
+  id         Int          @id @default(autoincrement())
+  code       String
+  name       String
+  isSupport  Boolean      @default(true)
+  tokenValue TokenValue[]
 }
 
-model Post {
-  id        Int      @default(autoincrement()) @id
-  title     String
-  content   String?
-  published Boolean? @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
+// all supported tokens on supported languages
+model Token {
+  id         Int          @id @default(autoincrement())
+  key        String       @unique
+  isSupport  Boolean      @default(true)
+  createdBy  String?
+  tokenValue TokenValue[]
+}
+
+model TokenValue {
+  id         Int      @id @default(autoincrement())
+  tokenKey   Token    @relation(fields: [tokenKeyId], references: [id])
+  tokenKeyId Int
+  language   Language @relation(fields: [languageId], references: [id])
+  languageId Int
+  tokenValue String
+  isSupport  Boolean  @default(true)
 }
