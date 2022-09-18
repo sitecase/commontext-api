@@ -1,7 +1,11 @@
-import { Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { LanguageService } from './language.service';
+import { Language as LanguageModel } from '@prisma/client';
 
 @Controller('language')
 export class LanguageController {
+  constructor(private readonly languageService: LanguageService) {}
+
   @Get()
   readAllLanguages(): Array<any> {
     return [1, 2];
@@ -9,7 +13,11 @@ export class LanguageController {
 
   @Post()
   @HttpCode(201)
-  createLanguage(): Array<any> {
-    return [1, 2];
+  async createLanguage(@Body() postData): Promise<LanguageModel> {
+    // const { code, name, isSupport } = postData;
+    // console.dir(postData);
+    return this.languageService.createLanguage({
+      ...postData,
+    });
   }
 }
