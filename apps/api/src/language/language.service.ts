@@ -6,15 +6,28 @@ import { Language, Prisma } from '@prisma/client';
 export class LanguageService {
   constructor(private prisma: PrismaService) {}
 
-  // Promise<Language>
   async createLanguage(data: Prisma.LanguageCreateInput): Promise<Language> {
-    console.dir(data, { depth: null });
+    // console.dir(data, { depth: null });
     const { code, name, isSupport } = data;
     return this.prisma.language.create({
       data: {
         code,
         name,
         isSupport: Boolean(isSupport),
+      },
+    });
+  }
+
+  async readAllLanguages(): Promise<Language[]> {
+    // TODO: add pagination and chunks
+    return this.prisma.language.findMany();
+  }
+
+  async deleteLanguageById(id: number): Promise<any> {
+    console.log(id, typeof id);
+    return this.prisma.language.delete({
+      where: {
+        id: id,
       },
     });
   }
