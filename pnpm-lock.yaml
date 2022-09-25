@@ -79,9 +79,6 @@ importers:
       webpack: 5.74.0
       webpack-node-externals: 3.0.0
 
-  apps/express-gql:
-    specifiers: {}
-
   apps/nest-gql:
     specifiers:
       '@nestjs/cli': ^8.2.8
